@@ -18,6 +18,38 @@ fun main(args: Array<String>) {
 //    someMethod(*list)
 
     someMethod(3, *list)
+
+    /**
+     * 함수를 매개변수로 전달 *************************
+     */
+    val funcMultiply = { a: Int, b: Int -> a * b }
+    val funcSum: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
+    println(funcMultiply(44, 3))
+    val funcSayHi = { name: String -> println("Hi $name") }
+    val funcSayHi2: (String) -> Unit = { name: String -> println("Hi $name") }
+    funcSayHi("Mac")
+    funcSayHi2("Kane")
+
+    performMath(4, 5, funcSum)
+
+    val price1 = 300
+    val price2 = 100
+    val total1 = totalCost(price1)
+    val total2 = totalCost(price2)
+    println("Cost for item1 is ${total1(price1)}")
+    println("Cost for item1 is ${total2(price1)}")
+}
+
+fun totalCost(prodCost: Int): (Int) -> Int {
+    if (prodCost > 199) {
+        return { x -> x }
+    } else {
+        return { x -> x + 50 }
+    }
+}
+
+fun performMath(a: Int, b: Int, mathFunc: (Int, Int) -> Int) {
+    println("value of cal : ${mathFunc(a, b)}")
 }
 
 //fun someMethod(vararg a: String) {
