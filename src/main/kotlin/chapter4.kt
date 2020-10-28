@@ -1,7 +1,11 @@
+import packageA.chapter4_1
+
 /**
  * @author Jongkook
  * @date : 2020/10/26
  */
+
+//import packageA.*
 
 fun main(args: Array<String>) {
     val sample = Sample()
@@ -38,6 +42,13 @@ fun main(args: Array<String>) {
     val total2 = totalCost(price2)
     println("Cost for item1 is ${total1(price1)}")
     println("Cost for item1 is ${total2(price1)}")
+
+    /**
+     * 정적 함수 선언 *************************
+     */
+//    foo()
+//    Foo.callFoo()
+    chapter4_1.foo2()
 }
 
 fun totalCost(prodCost: Int): (Int) -> Int {
