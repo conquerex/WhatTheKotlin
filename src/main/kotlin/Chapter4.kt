@@ -49,6 +49,62 @@ fun main(args: Array<String>) {
 //    foo()
 //    Foo.callFoo()
     chapter4_1.foo2()
+
+    /**
+     * use 키워드 사용
+     * .
+     * FileNotFoundException: file.txt (No such file or directory)
+     */
+//    FileInputStream("file.txt").use {
+//        input -> var data = input.read()
+//    }
+
+    /**
+     * 클로저 작업
+     */
+    var sum = 0
+    var listOfInt = arrayOf(0, 2, 4, 5, 6, 7)
+    listOfInt.forEach {
+        sum += it
+    }
+    println(sum)
+
+    /**
+     * 함수 리터럴
+     */
+    var str1 = "The start of a "
+    val addStr = fun String.(succesor: String): Int {
+//        return this + succesor
+        return this.length + succesor.length
+    }
+
+//    str1 = str1.addStr("good day.")
+//    println(str1)
+
+    var x = str1.addStr("bad day.")
+    println(x)
+
+    fun testIfEqual(
+        op: (String, String) -> Int,
+        a: String,
+        b: String,
+        c: Int
+    ) = assert(op(a, b) == c)
+
+    testIfEqual(addStr, str1, "nice day.", str1.length + "nice day..".length)
+
+    /**
+     * 익명함수로 작업하기
+     */
+    var funMultiply = fun(a: Int, b: Int): Int { return a * b }
+    var funSum = fun(a: Int, b: Int): Int { return a + b }
+    opMath(2, 5, funMultiply)
+    opMath(2, 5, funSum)
+    opMath(2, 5, fun(c: Int, d: Int): Int = c * c - d)
+}
+
+fun opMath(a: Int, b: Int, mathFun: (Int, Int) -> Int) {
+    println("Value : ${mathFun(a, b)}")
 }
 
 fun totalCost(prodCost: Int): (Int) -> Int {

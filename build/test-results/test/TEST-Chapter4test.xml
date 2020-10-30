@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Chapter4test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-29T11:02:03" hostname="Jongkooks-MacBook-Pro.local" time="0.025">
+  <properties/>
+  <testcase name="funLiteralTest" classname="Chapter4test" time="0.025"/>
+  <system-out><![CDATA[23
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
