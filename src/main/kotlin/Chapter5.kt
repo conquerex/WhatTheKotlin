@@ -27,6 +27,73 @@ fun main(args: Array<String>) {
      */
     BBB("hi").foo()
 
+    /**
+     * 코틀린에서 제네릭을 사용하는 방법
+     */
+    val intA: GenCl<Int> = GenCl(10)
+    println(intA.a)
+    // 코틀린 컴파일러가 타입을 추론하게 한다.
+    val strgen = GenCl("String....")
+    println(strgen.a)
+
+    fun <T> addTwo(a: List<T>) {
+        for (x in a) {
+            println(x)
+        }
+    }
+
+    addTwo(listOf(2, 3, 4, 5))
+    addTwo(listOf("aa", "bbb", "ccccc"))
+
+    /**
+     * 코틀린에서 다형성을 구현하는 방법
+     */
+    println(doubleOf(4))
+    println(doubleOf(4.3))
+    println(doubleOf(4.222))
+
+    var a = Sup()
+    a.method1()
+    a.method2()
+    var b = Sum()
+    b.method1()
+    b.method2()
+
+}
+
+open class Sup {
+    open fun method1() {
+        println("Printing 1..... indide Sup")
+    }
+
+    fun method2() {
+        println("Printing 2..... indide Sup")
+    }
+}
+
+class Sum : Sup() {
+    override fun method1() {
+        println("Printing 1..... indide sum!!!")
+    }
+}
+
+fun doubleOf(a: Int): Int {
+    println(1)
+    return 2 * a
+}
+
+fun doubleOf(a: Float): Float {
+    println(2)
+    return 2 * a
+}
+
+fun doubleOf(a: Double): Double {
+    println(3)
+    return 2.00 * a
+}
+
+class GenCl<T>(t: T) {
+    var a = t;
 }
 
 class DDD(str: String) : CCC() {
