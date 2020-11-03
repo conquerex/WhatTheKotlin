@@ -65,12 +65,7 @@ fun main(args: Array<String>) {
 
             return -1
         }
-    })
-
-    /**
-     * 내림차순으로 정렬
-     */
-    val listOfInt = listOf(3,4,5,6,9)
+    })    val listOfInt = listOf(3,4,5,6,9)
     var sortedIntList = listOfInt.sortedDescending()
     sortedIntList.forEach {
         println(it)
@@ -81,6 +76,11 @@ fun main(args: Array<String>) {
     sortedPersonDes.forEach {
         println(it.age)
     }
+
+    /**
+     * 내림차순으로 정렬
+     */
+
 }
 
 class Person6(var age: Int)
