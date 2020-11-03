@@ -159,6 +159,25 @@ fun main(args: Array<String>) {
         println("age : ${it.age} ::: ${it.GPA}")
     }
 
+    /**
+     * 코틀린에서 처음 N개의 항목을 건너 뛰는 방법
+     */
+    val delList = listOf<Int>(1,2,3,6,7,8,9)
+    var droppedList = delList.drop(2)
+    droppedList.forEach {
+        println(it)
+    }
+    println("-------")
+    delList.dropLast(2).forEach {
+        println(it)
+    }
+    println("-------")
+    delList.dropWhile {
+        it < 5
+    }.forEach {
+        println(it)
+    }
+
 }
 
 class Student6(val age: Int, val GPA: Double)
