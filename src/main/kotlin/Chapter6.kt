@@ -129,7 +129,39 @@ fun main(args: Array<String>) {
         println(">>> $it")
     }
 
+    /**
+     * 코틀린에서 문자열을 채우는 법
+     */
+    val textsample = "aaabbbb"
+    val pads = textsample.padStart(10, '-')
+    val pade = textsample.padEnd(10, '=')
+    println(pads)
+    println(pade)
+
+    /**
+     * 다차원 배열이나 맵을 1차원으로 바꾸는 방법
+     */
+    val sampleList = arrayOf(arrayOf(1, 2, 3), arrayOf(6, 7, 8), arrayOf(0, 9, 0))
+    sampleList.flatten().forEach {
+        println(it)
+    }
+
+    /**
+     * 코틀린에서 여러 필드로 컬렉션을 정렬하는 방법
+     */
+    val studentA = Student6(11, 2.3)
+    val studentB = Student6(11, 2.1)
+    val studentC = Student6(11, 1.1)
+    val studentD = Student6(14, 2.2)
+    val stList = listOf(studentA, studentB, studentC, studentD)
+    val sortedStList = stList.sortedWith(compareBy({ it.age }, { it.GPA }))
+    sortedStList.forEach {
+        println("age : ${it.age} ::: ${it.GPA}")
+    }
+
 }
+
+class Student6(val age: Int, val GPA: Double)
 
 class Personn(var age: Int?)
 
