@@ -109,6 +109,26 @@ fun main(args: Array<String>) {
     sortedListt.forEach {
         println(it.age)
     }
+
+    /**
+     * 코틀린에서 lazy 리스트를 구현하는 방법
+     */
+    // 목록을 시퀀스로
+    val AA = listOf(1, 2, 3, 4).asSequence()
+    var BB = AA.filter {
+        println("check ::: $it")
+        it % 2 == 0
+    }
+    println("-------")
+    BB.forEach {
+        println("printing --- $it")
+    }
+
+    val seq = generateSequence(1) { it * 2 }
+    seq.take(10).forEach {
+        println(">>> $it")
+    }
+
 }
 
 class Personn(var age: Int?)
