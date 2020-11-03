@@ -70,7 +70,7 @@ fun main(args: Array<String>) {
     /**
      * 내림차순으로 정렬
      */
-    val listOfInt = listOf(3,4,5,6,9)
+    val listOfInt = listOf(3, 4, 5, 6, 9)
     var sortedIntList = listOfInt.sortedDescending()
     sortedIntList.forEach {
         println(it)
@@ -81,6 +81,36 @@ fun main(args: Array<String>) {
     sortedPersonDes.forEach {
         println(it.age)
     }
+
+    /**
+     * 람다식을 사용하여 필터링 및 매핑하는 방법
+     */
+    val listOfNumbers = listOf(1, 2, 3, 5, 6, 7, 8, 11, 12)
+    var evenList = listOfNumbers.filter { it % 2 == 0 }
+    println(evenList)
+    // map : 리스트를 변환하고 변환된 새로운 리스트를 반환
+    val map = listOfNumbers.map {
+        it * 2
+    }
+    println(map)
+    // mapIndexed : 아이템과 함께 순서에 대한 색인도 제공
+    val map2 = listOfNumbers.mapIndexed { index, it ->
+        it * index
+    }
+    println(map2)
+
+    /**
+     * 객체 목록을 정렬하고 끝에 null 객체를 유지하는 방법
+     */
+    val listOfpersonns = listOf(Personn(10), Personn(22), Personn(6), Personn(null))
+    val sortedListt = listOfpersonns.sortedWith(compareBy(nullsLast<Int>(), {
+        it.age
+    }))
+    sortedListt.forEach {
+        println(it.age)
+    }
 }
+
+class Personn(var age: Int?)
 
 class Person6(var age: Int)
