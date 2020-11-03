@@ -1,0 +1,5 @@
+Turning it up to 11: Android 11 for developers
+08 September 2020
+Posted by Stephanie Cuthbertson, Director, Product Management
+
+Android 11 is here! Today we’re pushing the source to the Android Open Source Project (AOSP) and officially releasing the newest version of Android. We built Android 11 with a focus on three themes: a People-centric approach to communication, Controls to let users quickly get to and control all of their smart devices, and Privacy to give users more ways to control how data on devices is shared. Read more in our Keyword post.
