@@ -51,4 +51,33 @@ fun main(args: Array<String>) {
     listOfLines2.forEach {
         println("** $it")
     }
+
+    /**
+     * BufferedReader를 이용해 파일 읽기
+     */
+    // 직접 reader를 사용하는 경우
+    val listOfLines3 = mutableListOf<String>()
+    File("/Users/jongkook/dev/WhatTheKotlin/Android11Blog.txt").bufferedReader().useLines { lines ->
+        lines.forEach {
+            var x = ">>> (${it.length}) $it"
+            listOfLines3.add(x)
+        }
+    }
+    listOfLines3.forEach { println(it) }
+
+    // 스트림을 가져다 사용해야 하는 경우
+    val listOfLines6 = mutableListOf<String>()
+    val inputSteam6: InputStream = File("/Users/jongkook/dev/WhatTheKotlin/Android11Blog.txt").inputStream()
+    inputSteam6.bufferedReader().useLines { lines ->
+        lines.forEach {
+            var x = "--- (${it.length}) $it"
+            listOfLines6.add(x)
+        }
+    }
+    listOfLines6.forEach { println(it) }
+
+    /**
+     * BufferedReader를 이용해 파일의 모든 데이터 읽기
+     */
+    
 }
