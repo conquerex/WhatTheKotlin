@@ -102,8 +102,4 @@ fun main(args: Array<String>) {
     listOfLines8.forEach {
         println(it)
     }
-
-    /**
-     * 네트워크로부터 문자열과 JSON 데이터 읽기
-     */
 }
