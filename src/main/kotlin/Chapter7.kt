@@ -79,5 +79,31 @@ fun main(args: Array<String>) {
     /**
      * BufferedReader를 이용해 파일의 모든 데이터 읽기
      */
-    
+    val inputStream7: InputStream = File("/Users/jongkook/dev/WhatTheKotlin/Android11Blog.txt").inputStream()
+    val inputString7 = inputStream7.bufferedReader(Charsets.ISO_8859_1).use {
+        it.readText()
+    }
+    println(inputString7)
+
+    /**
+     * BufferedReader를 이용해 파일로부터 한 줄씩 읽기
+     */
+    val listOfLines8 = mutableListOf<String>()
+    val inputStream8: InputStream = File("/Users/jongkook/dev/WhatTheKotlin/Android11Blog.txt").inputStream()
+    inputStream8.bufferedReader().useLines { lines ->
+        lines.forEach {
+            var x = "##(0)"
+            if (it.length > 10) {
+                x = "##(${it.length}) ${it.substring(0, 10)}"
+            }
+            listOfLines8.add(x)
+        }
+    }
+    listOfLines8.forEach {
+        println(it)
+    }
+
+    /**
+     * 네트워크로부터 문자열과 JSON 데이터 읽기
+     */
 }
