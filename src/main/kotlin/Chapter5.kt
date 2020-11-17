@@ -176,7 +176,7 @@ interface B {
 
 interface DemoInterface {
     fun impleMethod() {
-        println("From demo interface")
+        println("Chapter11.From demo interface")
     }
 }
 

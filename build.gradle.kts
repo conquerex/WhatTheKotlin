@@ -12,6 +12,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test-junit"))
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.10")
+    implementation("com.google.code.gson:gson:2.8.6")
 }
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "1.8"
