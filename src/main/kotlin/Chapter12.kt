@@ -1,4 +1,3 @@
-import java.lang.IllegalStateException
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
@@ -8,15 +7,17 @@ import kotlin.reflect.KProperty
  * @date : 2020/11/17
  */
 
+lateinit var kp: KoPerson
+
 fun main(args: Array<String>) {
     // 초기값 : 빈 문자열 ""
-    var a : String by Delegates.observable("", {_, old, new ->
+    var a: String by Delegates.observable("", { _, old, new ->
         println("Old : $old, Updated : $new")
     })
     a = "A"
     a = "B"
 
-    var person: KoPerson by Delegates.vetoable(KoPerson(12), {_, old, new ->
+    var person: KoPerson by Delegates.vetoable(KoPerson(12), { _, old, new ->
         if (new.age > 20) {
             println("Nooooooooo")
             return@vetoable false
@@ -36,8 +37,10 @@ fun main(args: Array<String>) {
 //    println(aa)
 
     /**
-     *
+     * 전역변수 만들기
      */
+    kp = KoPerson(11)
+    println(kp.age)
 }
 
 data class KoPerson(var age: Int)
